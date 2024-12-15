@@ -3,7 +3,6 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QLabel, QLineEdit, QPushButt
 from PyQt5.QtSql import QSqlDatabase, QSqlRelationalTableModel, QSqlQuery
 from PyQt5.QtCore import QDateTime
 
-# Создание базы данных и таблицы
 def setup_database():
     db = QSqlDatabase.addDatabase("QSQLITE")
     db.setDatabaseName("mydatabase.db")
@@ -73,7 +72,7 @@ class MyApp(QWidget):
         if not query.exec_():
             QMessageBox.warning(self, 'Database Error', 'Failed to add variant!')
         else:
-            self.model.select()  # Обновляем модель
+            self.model.select()
 
         self.teacher_edit.clear()
         self.variant_edit.clear()
@@ -93,7 +92,7 @@ class MyApp(QWidget):
         if not query.exec_():
             QMessageBox.warning(self, 'Database Error', 'Failed to delete variant!')
         else:
-            self.model.select()  # Обновляем модель
+            self.model.select()
 
 if __name__ == '__main__':
     setup_database()
